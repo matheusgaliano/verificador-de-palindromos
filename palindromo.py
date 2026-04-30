@@ -1,10 +1,15 @@
 import unicodedata
+import re
 
 def verifica_palindromo(palavra):
     processado = unicodedata.normalize('NFD', palavra)
+    
     palavra_limpa = "".join(c for c in processado if unicodedata.category(c) != 'Mn')
-    palavra_limpa = palavra_limpa.lower().replace(" ", "")
+    
+    palavra_limpa = re.sub(r'[^a-zA-Z0-9]', '', palavra_limpa).lower()
+    
     palavra_invertida = palavra_limpa[::-1]
+    
     return palavra_limpa == palavra_invertida #retirada do if e else desnecessários
        
 while True:
