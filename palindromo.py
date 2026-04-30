@@ -3,9 +3,9 @@ import unicodedata
 def verifica_palindromo(palavra):
     processado = unicodedata.normalize('NFD', palavra)
     palavra_limpa = "".join(c for c in processado if unicodedata.category(c) != 'Mn')
-    palavra_limpa = palavra.lower().replace(" ", "")
-    palavra_invertida = palavra[::-1]
-    return palavra == palavra_invertida #retirada do if e else desnecessários
+    palavra_limpa = palavra_limpa.lower().replace(" ", "")
+    palavra_invertida = palavra_limpa[::-1]
+    return palavra_limpa == palavra_invertida #retirada do if e else desnecessários
        
 
 texto_usuario = input("Digite uma palavra: ")
